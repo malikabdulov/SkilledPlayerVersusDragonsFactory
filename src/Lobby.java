@@ -22,7 +22,7 @@ public class Lobby {
                         }
                         case ("2") -> {
                             location = "Merchant";
-                            new Merchant(player); // TODO: сделать торговца
+                            System.out.println("Hello, " + player.name + " come again for potions?");
                         }
                         case ("3") -> player.status();
                     }
@@ -34,6 +34,38 @@ public class Lobby {
                     System.out.println("3. Show status");
                     switch (sc.nextLine()) {
                         case ("1") -> new DarkWood(player).fight();
+                        case ("2") -> location = "Lobby";
+                        case ("3") -> player.status();
+                    }
+                }
+                case ("Merchant") -> {
+                    Merchant merchant = new Merchant(player);
+
+                    System.out.println("1. Buy a hp potion (5 gold)");
+                    System.out.println("2. Back to the Lobby");
+                    System.out.println("3. Show status");
+                    switch (sc.nextLine()) {
+                        case ("1") -> {
+                            if (merchant.buyHpPotion(5)) {
+                                System.out.println("Pleasure doing business with you");
+                            } else {
+                                System.out.println("You seem to be missing gold. If you can help me chop wood, then I will give this potion.");
+                                location = "Merchant's yard";
+                            }
+                        }
+                        case ("2") -> location = "Lobby";
+                        case ("3") -> player.status();
+                    }
+                }
+                case ("Merchant's yard") -> {
+                    System.out.println("1. Accept the offer");
+                    System.out.println("2. Back to the Lobby");
+                    System.out.println("3. Show status");
+                    switch (sc.nextLine()) {
+                        case ("1") -> {
+                            new MerchantsYard(player).choppingWood();
+                            location = "Merchant";
+                        }
                         case ("2") -> location = "Lobby";
                         case ("3") -> player.status();
                     }

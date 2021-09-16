@@ -1,7 +1,8 @@
-public class Player extends Being{
+public class Player extends Being {
     int maxHp;
+
     public Player(String name) {
-        super(name,10, 10, 10, 1, 0, 10);
+        super(name, 10, 10, 10, 1, 0, 10);
         this.maxHp = hp;
         System.out.println("Newbie " + name + " connected to the game");
     }
@@ -11,19 +12,19 @@ public class Player extends Being{
         return super.isAlive();
     }
 
-    public void increaseGold(int delta){
+    public void increaseGold(int delta) {
         gold += delta;
     }
 
-    public void increaseExp(int delta){
+    public void increaseExp(int delta) {
         exp += delta;
-        while(exp >= 1000){
+        while (exp >= 1000) {
             exp -= 1000;
             lvlUp();
         }
     }
 
-    public void lvlUp(){
+    public void lvlUp() {
         System.out.println("Congrats! You are earned a new level");
         lvl++;
         str++;
@@ -31,7 +32,7 @@ public class Player extends Being{
         maxHp += 10;
     }
 
-    public void status(){
+    public void status() {
         System.out.print("level:" + this.lvl);
         System.out.print(" strength:" + this.str);
         System.out.print(" agility:" + this.agi);
@@ -39,6 +40,24 @@ public class Player extends Being{
 
         System.out.println("HP[==" + this.hp + "/" + this.maxHp + "==]");
         System.out.println("EXP [==" + this.exp + "/1000==]");
+    }
+
+    public boolean pay(int price){
+        if (this.gold < price){
+            return false;
+        } else {
+            this.gold -= price;
+            return true;
+        }
+    }
+
+
+
+    public void drinkPotion() {
+        this.hp += 50;
+        if (this.hp > this.maxHp) {
+            this.hp = this.maxHp;
+        }
     }
 }
 
