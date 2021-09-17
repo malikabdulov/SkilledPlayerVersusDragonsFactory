@@ -8,6 +8,7 @@ public class Lobby {
         System.out.println("Enter your username:");
 
         Player player = new Player(sc.nextLine());
+        new GUI(player).start();
         Dragon dragon = new Dragon("Dragon");
 
         while (player.isAlive() && dragon.isAlive()) {
@@ -61,13 +62,15 @@ public class Lobby {
                         case ("1") -> {
                             if (!merchant.buyHpPotion(5)) {
                                 location = "Merchant's yard";
+
+                                System.out.println("You seem to be missing gold. Help me chop wood and I'll give you a potion");
                             }
                         }
                         case ("2") -> {
                             if(merchant.buyKey(100)){
                                 System.out.println("Now you can go to the dragon's factory");
                             } else {
-                                System.out.println("You seem to be missing gold");
+                                System.out.println("You seem to be missing gold.");
                             }
                         }
                         case ("3") -> location = "Lobby";
