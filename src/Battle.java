@@ -38,7 +38,7 @@ public class Battle extends Thread {
         System.out.println();
     }
 
-    private boolean attack(Being attacker, Being target) {
+    private void attack(Being attacker, Being target) {
         int attackerAgi = attacker.getAgi();
         int attackerStr = attacker.getStr();
         int targetAgi = target.getAgi();
@@ -46,17 +46,16 @@ public class Battle extends Thread {
 
         if (isDodge(attackerAgi, targetAgi)) {
             System.out.println(attacker.name + " missed. " + target.name + " dodged the attack");
-            return false;
-        }
-
-        if (isCriticalStrike(attackerStr, attackerAgi)) {
-            System.out.println(attacker.name + " made a critical strike and deals " + attackerStr * 2 + " damage");
+        } else if (isCriticalStrike(attackerStr, attackerAgi)) {
             target.decreaseHp(attackerStr * 2);
+            System.out.print(attacker.name + " made a critical strike and deals " + attackerStr * 2 + " damage. ");
+            System.out.println(target.name + "[===" + target.hp + "/" + target.maxHp + "===]");
         } else {
-            System.out.println(attacker.name + " deals " + attackerStr + " damage");
             target.decreaseHp(attackerStr);
+            System.out.print(attacker.name + " deals " + attackerStr + " damage. ");
+            System.out.println(target.name + "[===" + target.hp + "/" + target.maxHp + "===]");
+
         }
-        return true;
     }
 
 

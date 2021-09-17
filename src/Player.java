@@ -1,10 +1,9 @@
 public class Player extends Being {
-    int maxHp;
+
     boolean haveKey = false;
 
     public Player(String name) {
-        super(name, 100, 10, 10, 1, 0, 10);
-        this.maxHp = hp;
+        super(name, 100, 100, 10, 10, 1, 0, 10);
         System.out.println("Newbie " + name + " connected to the game");
     }
 
@@ -40,7 +39,7 @@ public class Player extends Being {
         System.out.println(" gold:" + this.gold);
 
         System.out.println("HP[==" + this.hp + "/" + this.maxHp + "==]");
-        System.out.println("EXP [==" + this.exp + "/1000==]");
+        System.out.println("EXP[==" + this.exp + "/1000==]");
     }
 
     public boolean pay(int price){
