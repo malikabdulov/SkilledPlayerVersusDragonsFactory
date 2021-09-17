@@ -33,7 +33,7 @@ public class Lobby {
                         case ("4") -> {
                             if (player.haveKey) {
                                 System.out.println("Dragon woke up. Prepare to battle");
-                                new Battle(player, dragon).start();
+                                new Factory(player, dragon).fight();
                             }
                         }
                     }
@@ -59,10 +59,7 @@ public class Lobby {
 
                     switch (sc.nextLine()) {
                         case ("1") -> {
-                            if (merchant.buyHpPotion(5)) {
-
-                            } else {
-
+                            if (!merchant.buyHpPotion(5)) {
                                 location = "Merchant's yard";
                             }
                         }
