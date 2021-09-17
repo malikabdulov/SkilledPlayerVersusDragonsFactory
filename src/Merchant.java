@@ -13,4 +13,13 @@ public class Merchant {
             return false;
         }
     }
+
+    public boolean buyKey(int price) {
+        if (player.pay(price)) {
+            player.gotKey();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -33,14 +33,9 @@ public class Battle extends Thread {
 
             player.increaseGold(loot);
             System.out.println("The " + monster.name + " is defeated. (+ " + exp + " experience, +" + loot + " gold)");
-            System.out.println();
             player.increaseExp(exp);
-
-
-
-
         }
-
+        System.out.println();
     }
 
     private boolean attack(Being attacker, Being target) {

@@ -1,8 +1,9 @@
 public class Player extends Being {
     int maxHp;
+    boolean haveKey = true;
 
     public Player(String name) {
-        super(name, 10, 10, 10, 1, 0, 10);
+        super(name, 10, 10, 10, 1, 0, 100);
         this.maxHp = hp;
         System.out.println("Newbie " + name + " connected to the game");
     }
@@ -51,14 +52,17 @@ public class Player extends Being {
         }
     }
 
-
-
     public void drinkPotion() {
         this.hp += 50;
         if (this.hp > this.maxHp) {
             this.hp = this.maxHp;
         }
     }
+
+    public void gotKey(){
+        this.haveKey = true;
+    }
+
 }
 
 
