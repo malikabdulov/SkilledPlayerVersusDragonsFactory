@@ -7,10 +7,12 @@ public class GUI extends Thread{
     private JPanel panel;
     private JProgressBar hpBar, expBar;
     private JLabel statsLabel, expLabel;
-    Player player;
+    Being player;
+    private int offset;
 
-    public GUI(Player player){
+    public GUI(Being player, int offset){
         this.player = player;
+        this.offset = offset;
 
         frame = new JFrame();
         panel = new JPanel();
@@ -46,7 +48,7 @@ public class GUI extends Thread{
 
         frame.add(panel);
         frame.setTitle("Game GUI");
-        frame.setBounds(800,200, 1600,600);
+        frame.setBounds(800, 100 + offset, 0, 0);
         frame.pack();
         frame.setVisible(true);
 
@@ -68,5 +70,6 @@ public class GUI extends Thread{
                 e.printStackTrace();
             }
         }
+        frame.dispose();
     }
 }

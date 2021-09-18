@@ -8,7 +8,7 @@ public class Lobby {
         System.out.println("Enter your username:");
 
         Player player = new Player(sc.nextLine());
-        new GUI(player).start();
+        new GUI(player, 0).start();
         Dragon dragon = new Dragon("Dragon");
 
         while (player.isAlive() && dragon.isAlive()) {

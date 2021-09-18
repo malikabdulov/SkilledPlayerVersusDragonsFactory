@@ -8,6 +8,7 @@ public class Battle extends Thread {
     public Battle(Player player, Being monster) {
         this.player = player;
         this.monster = monster;
+        new GUI(monster, 180).start();
     }
 
     @Override
@@ -48,12 +49,10 @@ public class Battle extends Thread {
             System.out.println(attacker.name + " missed. " + target.name + " dodged the attack");
         } else if (isCriticalStrike(attackerStr, attackerAgi)) {
             target.decreaseHp(attackerStr * 2);
-            System.out.print(attacker.name + " made a critical strike and deals " + attackerStr * 2 + " damage. ");
-            System.out.println(target.name + "[===" + target.hp + "/" + target.maxHp + "===]");
+            System.out.println(attacker.name + " made a critical strike and deals " + attackerStr * 2 + " damage. ");
         } else {
             target.decreaseHp(attackerStr);
-            System.out.print(attacker.name + " deals " + attackerStr + " damage. ");
-            System.out.println(target.name + "[===" + target.hp + "/" + target.maxHp + "===]");
+            System.out.println(attacker.name + " deals " + attackerStr + " damage. ");
 
         }
     }
