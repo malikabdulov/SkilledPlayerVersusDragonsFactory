@@ -9,6 +9,7 @@ public class Lobby {
 
         Player player = new Player(sc.nextLine());
         Dragon dragon = new Dragon("Dragon");
+        Merchant merchant = new Merchant(player);
 
         while (player.isAlive() && dragon.isAlive()) {
             switch (location) {
@@ -50,7 +51,6 @@ public class Lobby {
                     }
                 }
                 case ("Merchant") -> {
-                    Merchant merchant = new Merchant(player);
 
                     System.out.println("1. Buy a hp potion (5 gold)");
                     System.out.println("2. Buy a Dragon's factory key (100 gold)");

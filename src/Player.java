@@ -3,7 +3,7 @@ public class Player extends Being {
     boolean haveKey = false;
 
     public Player(String name) {
-        super(name, 100, 100, 10, 10, 1, 0, 10);
+        super(name, 100, 100, 10, 10, 1, 0, 0);
         System.out.println("Newbie " + name + " connected to the game");
     }
 
