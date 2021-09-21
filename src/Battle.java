@@ -8,7 +8,7 @@ public class Battle extends Thread {
     public Battle(Player player, Being monster) {
         this.player = player;
         this.monster = monster;
-        new GUI(monster, 180).start();
+        new BattleGUI(player, monster);
     }
 
     @Override
